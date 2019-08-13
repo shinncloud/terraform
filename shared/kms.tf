@@ -12,6 +12,15 @@ resource "google_kms_crypto_key" "buildkite" {
   }
 }
 
+resource "google_kms_crypto_key" "terraform" {
+  name     = "terraform"
+  key_ring = google_kms_key_ring.packer.self_link
+
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
 resource "google_kms_crypto_key_iam_binding" "decrypter" {
   crypto_key_id = google_kms_crypto_key.buildkite.self_link
   role          = "roles/cloudkms.cryptoKeyDecrypter"
