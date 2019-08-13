@@ -1,0 +1,14 @@
+steps:
+  - label: ':terraform: :mag: shared'
+    command: validate
+    plugins:
+      - docker#v3.3.0:
+          image: hashicorp/terraform:0.12.7
+          volume:
+            - shared:/workdir
+  - label: ':terraform: :mag: workspaces'
+    command: validate
+    plugins:
+      - docker#v3.3.0:
+          image: hashicorp/terraform:0.12.7
+            -- workspaces:/workdir
