@@ -21,6 +21,13 @@ resource "github_repository_deploy_key" "buildkite_packer" {
   read_only  = true
 }
 
+resource "github_repository_deploy_key" "buildkite_packer" {
+  title      = "Buildkite Terraform SSH key"
+  repository = github_repository.terraform.name
+  key        = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDEI6LDtdEPJ3PD6nImqH0aokiB2BkXeL3Whj4JATU8RV00AxK4UYjl+y/dT1LKw3aWMNQozB1XStu5T2JC3iEV60HwxaVkqEqs+zawsbINezL8oPgrXv/XbBHAuGypibdYsaM0nHzw6rjMrDJRlQIR++n7gCgPE98WftDdSXQdqIesHf3JTXvn/evehAXfgKGkpiKi6pjcmjy/0vdTPL/I3lcvrwfQLe1ksv9IWVYn742XDqF7NgiYgAmo1D0UM+B8DP+m4tuqDNAIfZevyaks8dr9I6sN/x+9pjb/70//sWDnDnhMAynsIt2RtLeDVRyn2XzXij+8eop06TYwgQ1IP0xY+mJXeAHb+hQLRYHEaBJRab7D3+1d08Xj3/137tTKdReRdCdv+OwbPAWBoKPZU60FTr6nEfgISdwyjUQrFYrzNBEhgT2WeSXQpi2dw07aMOLJzlw3wsccPKUzmjRhdhzMS6NNMy/hcuyKL/m6ExYWtbd4bqwvBOyLSSyjU6fiZWxuqxMJ71ZnwSKDa8A+6MDtWonbtFq/1KNtdmWkXTqA9GjbRskJ9MLcan21Gltkw6SxNVrwkllogcurHl16MyMGTCE0UbRSyB0nWKEf8Vr/dlqdopldgIv5d3azCJiCaNSqSVA2bQj26dFECPYVGAIfbham32820QPHmAwQUQ=="
+  read_only  = true
+}
+
 resource "github_organization_project" "main" {
   name = "Infrastructure Learning"
   body = "A project board for ShinnCloud infrastructure learning."
