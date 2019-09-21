@@ -25,3 +25,18 @@ resource "github_organization_project" "main" {
   name = "Infrastructure Learning"
   body = "A project board for ShinnCloud infrastructure learning."
 }
+
+resource "github_project_column" "column" {
+  project_id = github_organization_project.main.id
+  name       = "Ready"
+}
+
+resource "github_project_column" "column" {
+  project_id = github_organization_project.main.id
+  name       = "In Progress"
+}
+
+resource "github_project_column" "column" {
+  project_id = github_organization_project.main.id
+  name       = "Done"
+}
