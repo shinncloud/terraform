@@ -8,3 +8,7 @@ provider "github" {
   organization = var.project_name
   version      = "~> 2.2.1"
 }
+
+provider "netlify" {
+  version = "~> 0.3.0"
+}
