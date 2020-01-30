@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euo pipefail
+
+echo '--- :terraform: :unlock: Setting up Terraform Cloud authentication'
+
+gcloud kms decrypt \
+    --project shinncloud \
+    --ciphertext-file files/.terraformrc.enc \
+    --plaintext-file files/.terraformrc \
+    --key terraform \
+    --keyring packer \
+    --location global
